@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left Sliding Modal with Bootstrap</title>
+    <!-- Bao gồm Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Bổ sung CSS tùy chỉnh -->
+    <style>
+         .menu-button{
+            border: none;
+            color: white;
+            background-color: black;
+            font-size: x-large;
+        }
+        .modal-dialog {
+        max-width: 100%;
+        width: 100%;
+        margin: auto;
+        }
+        .modal.left .modal-dialog {
+            position: fixed;
+            margin: auto;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hiển thị modal khi có class 'show' */
+        .modal.left.show .modal-dialog {
+            transform: translateX(0);
+        } 
+    </style>
+</head>
+<body>
+
+<!-- Button để mở modal -->
+<button type="button" class="menu-button" data-toggle="modal" data-target="#myModal">
+    &#9776;
+  </button>
+
+  <!-- The Modal -->
+  <div style="width: 1200px;height: 100vw;" class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h1 class="modal-title">Modal Heading</h1>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <ul id="navigation">
+                <li><a class="active" href="index.html">home</a></li>
+                <li><a href="rooms.html">rooms</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blogs <i class="ti-angle-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="blog.html">Blogs</a></li>
+                        <li><a href="blog_dalat.html">DaLat</a></li>
+                        <li><a href="blog_stories.html">Stories</a></li>
+                    </ul>
+                </li>
+                <li><a href="restaurant.html">Restaurant <i class="ti-angle-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="theloop_res_drinks.html">Drinks</a></li>
+                        <li><a href="theloop_res_bbq.html">BBQ</a></li>
+                        <li><a href="theloop_res_disum.html">Disum</a></li>
+                        <li><a href="theloop_res_bistro.html">Bistro</a></li>
+                        <li><a href="theloop_res_combo.html">Combo</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

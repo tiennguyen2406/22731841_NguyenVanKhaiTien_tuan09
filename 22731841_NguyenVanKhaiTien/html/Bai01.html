@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        #navbarSupportedContent ul li {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        #table1 thead tr th {
+            border: 1px solid rgb(148, 144, 144);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <img style="width: 100%;" src="../img/header.PNG" alt="">
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light">
+                <a href="#" class="navbar-brand">Navbar</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item" id="btnModal" data-target="#myModal" data-toggle="modal">Register</a>
+                                <a href="#" class="dropdown-item">Another action</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline" action="/action_page.php">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <table class="table table-striped" id="table1">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ma tour</th>
+                        <th>Hanh trinh</th>
+                        <th>Ngay khoi hanh</th>
+                        <th>Thoi gian</th>
+                        <th>Gia tour</th>
+                        <th>Anh dai dien</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Thong tin tour</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tourForm">
+                            <div class="form-group">
+                                <label for="matour">Ma tour:</label>
+                                <input type="text" class="form-control" id="matour">
+                                <small id="loima" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="hanhtrinh">Hanh trinh:</label>
+                                <select class="form-control" id="hanhtrinh">
+                                    <option value="Ha Noi - Hue - Da Nang">Ha Noi - Hue - Da Nang</option>
+                                    <option value="Da Lat - Sai Gon - Nha Trang">Da Lat - Sai Gon - Nha Trang</option>
+                                    <option value="Nha Trang - Can Tho">Nha Trang - Can Tho</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="ngaykhoihanh">Ngay khoi hanh:</label>
+                                <input type="date" class="form-control" id="ngaykhoihanh">
+                                <small id="loingaykhoihanh" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="thoigian">Thoi gian:</label>
+                                <select class="form-control" id="thoigian">
+                                    <option value="2 ngay 3 dem">2 ngay 3 dem</option>
+                                    <option value="3 ngay 4 dem">3 ngay 4 dem</option>
+                                    <option value="4 ngay 5 dem">4 ngay 5 dem</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="giatour">Gia tour:</label>
+                                <input type="text" class="form-control" id="giatour">
+                                <small id="loigia" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="anh">Anh dai dien:</label>
+                                <input type="file" class="form-control-file" id="anh">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="btnluu">Luu</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Dong</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btnluu").click(function() {
+                let matour = $("#matour").val().trim();
+                let reg_ma = /^[A-Z]{3}-[A-Z]{3}-(01|02|03|04|05|06|07|08|09|10|11|12)-[0-9]{4}$/;
+
+                if (matour === "") {
+                    $("#loima").html("Mã tour không được để trống");
+                    return;
+                } else if (!reg_ma.test(matour)) {
+                    $("#loima").html("Mã tour phải có định dạng đúng");
+                    return;
+                } else {
+                    $("#loima").html("");
+                }
+
+                let ngaykhoihanh = $("#ngaykhoihanh").val();
+                if (ngaykhoihanh === "") {
+                    $("#loingaykhoihanh").html("Vui lòng chọn ngày khởi hành");
+                    return;
+                } else {
+                    $("#loingaykhoihanh").html("");
+                }
+
+                let ngayKhoiHanh = new Date(ngaykhoihanh);
+                let ngayHienTai = new Date();
+                let soNgayChenhLech = Math.floor((ngayKhoiHanh - ngayHienTai) / (1000 * 3600 * 24));
+                if (soNgayChenhLech < 30) {
+                    $("#loingaykhoihanh").html("Ngày khởi hành phải sau ngày hiện tại ít nhất 30 ngày");
+                    return;
+                } else {
+                    $("#loingaykhoihanh").html("");
+                }
+
+                let giaTour = $("#giatour").val().trim();
+                if (isNaN(giaTour) || parseFloat(giaTour) <= 0) {
+                    $("#loigia").html("Giá tour phải là số lớn hơn 0");
+                    return;
+                } else {
+                    $("#loigia").html("");
+                }
+
+                let hanhtrinh = $("#hanhtrinh").val();
+                let thoigian = $("#thoigian").val();
+                let anh = $("#anh").val(); // Lấy đường dẫn của file ảnh (chưa xử lý)
+
+                let rowCount = $("#table1 tbody tr").length + 1;
+                let newRow = `<tr>
+                    <td>${rowCount}</td>
+                    <td>${matour}</td>
+                    <td>${hanhtrinh}</td>
+                    <td>${ngaykhoihanh}</td>
+                    <td>${thoigian}</td>
+                    <td>${giaTour}</td>
+                    <td>${anh}</td>
+                </tr>`;
+                $("#table1 tbody").append(newRow);
+
+                $("#myModal").modal("hide");
+            });
+        });
+    </script>
+</body>
+
+</html>

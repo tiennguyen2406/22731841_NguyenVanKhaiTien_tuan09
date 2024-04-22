@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        #navbarSupporttedContent ul li {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        #table1 thead tr th {
+            border: 1px solid rgb(148, 144, 144);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="width: 100%;" class="container-fluid">
+        <div class="row">
+            <img style="width: 100%;" src="../img/header.PNG" alt="">
+        </div>
+        <div style="width: 100%;" class="row">
+            <nav style="width: 100%;" class="navbar navbar-expand-lg bg-light navbar-light">
+                <a href="#" class="navbar-brand">Navbar</a>
+                <div class="collapse navbar-collapse" id="navbarSupporttedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item" id="btnModal" data-target="#myModal" data-toggle="modal">Register</a>
+                                <a href="#" class="dropdown-item">Another ation</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline" action="/action_page.php">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <table class="table table-striped" id="table1">
+                <thead>
+                    <tr>
+                        <th id="stt">STT</th>
+                        <th id="ma">Ma hoc vien</th>
+                        <th id="hoten">Ho ten</th>
+                        <th id="sdt">Sodienthoai</th>
+                        <th id="date">
+                            Ngay sinh
+                        </th>
+                        <th id="diachi">
+                            Dia chi
+                        </th>
+                        
+                        <th id="khoahoctable">Khoahoc</th>
+                        <th id="total">Tong tien</th>
+                        <th id="image">hinh anh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Thong tin thanh toan</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">Ma hoc vien:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="mahocvien" style="width: 100%;" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p id="loima"></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">Ho va ten:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="hovaten" style="width: 100%;" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p id="loiten"></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">So dien thoai:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input id="sodienthoai" style="width: 100%;" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p id="loisdt"></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">Ngay sinh:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input style="width: 100%;" type="date" id="ngaysinh">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p id="loingaysinh"></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">Dia chi:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input style="width: 100%;" type="text" id="address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="khoahoc">Khoa hoc:</label>
+                                </div>
+                                <div class="col-8">
+                                    <select style="width: 100%;" name="khoahoc" id="khoahoc">
+                                        <option value="Khoa 2 tuan">Khoa 2 tuan</option>
+                                        <option value="Khoa 3 tuan">Khoa 3 tuan</option>
+                                        <option value="Khoa 4 tuan">Khoa 4 tuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="hocphi">Hoc phi:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input style="width: 100%;" type="text" id="hocphi" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="">Anh dai dien:</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="file" class="form-control-file border" name="file" id="anh">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p></p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div style="width: 100%;" class="modal-footer">
+                        <button style="width: 50%;" type="button" class="btn btn-success" id="btnluu">Luu</button>
+                        <button style="width: 50%;" type="button" class="btn btn-danger" data-dismiss="modal">Dong</button>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                            $("#khoahoc").change(function() {
+                                let khoahocValue = $("#khoahoc").val();
+                                switch (khoahocValue) {
+                                    case "Khoa 2 tuan":
+                                        $("#hocphi").val("5,000,000");
+                                        break;
+                                    case "Khoa 3 tuan":
+                                        $("#hocphi").val("8,000,000");
+                                        break;
+                                    case "Khoa 4 tuan":
+                                        $("#hocphi").val("9,000,000");
+                                        break;
+                                    default:
+                                        $("#hocphi").val("");
+                                        break;
+                                        }
+                                    });  
+                        });
+                        $("#btnluu").click(function(e) {
+                            e.preventDefault();
+                                $(document).ready(function(){
+                                    $("#hovaten").blur(function(e) {
+                                    e.preventDefault();
+                                    let hovaten = $("#hovaten").val();
+                                    let reg_hovaten = /^[A-Z][a-z]+\s[A-Z][a-z]+(\s[A-Z][a-z]+)*$/;
+                                    
+                
+                                    if (hovaten == "") {
+                                        $("#loiten").html("Họ tên không được để trống");
+                                        $("#hovaten").focus();
+                                    } else if (!reg_hovaten.test(hovaten)) {
+                                        $("#loiten").html("Họ tên phải viết hoa và có định dạng đúng");
+                                        $("#hovaten").focus();
+                                    } else {
+                                        $("#loiten").html("");
+                                    }
+                                });
+                                    $("#sodienthoai").blur(function(e){
+                                        e.preventDefault();
+                                        let sdt = $("#sodienthoai").val();
+                                        let reg_sdt = /^[0-9]{3}-[0-9]{6}$/;
+                                        if (hovaten == "") {
+                                            $("#loisdt").html("Số điện thoại không được để trống");
+                                            $("#sodienthoai").focus();
+                                        } else if (!reg_sdt.test(sdt)) {
+                                        $("#loisdt").html("Số điện thoại phải có định dạng đúng");
+                                        $("#sodienthoai").focus();
+                                    } else {
+                                        $("#loisdt").html("");
+                                    }
+                                    });
+
+                                    $("#ngaysinh").change(function(e) { // Sử dụng sự kiện change khi ngày sinh thay đổi
+                                    e.preventDefault();
+                                                            
+                                    let ngaysinhValue = $("#ngaysinh").val();
+                                                                
+                                    if (ngaysinhValue) { 
+                                        let ngaysinhDate = new Date(ngaysinhValue);
+                                        let currentDate = new Date();
+                                        let age = currentDate.getFullYear() - ngaysinhDate.getFullYear();
+                                        if (age >= 15 && age < 18) {
+                                            $("#loingaysinh").html(""); 
+                                        } else {
+                                            $("#loingaysinh").html("Ngày sinh phải từ 15 đến dưới 18 tuổi");
+                                            $("#ngaysinh").focus(); 
+                                        }
+                                    } else {
+                                        
+                                        $("#loingaysinh").html("Vui lòng nhập ngày sinh");
+                                        $("#ngaysinh").focus(); 
+                                    }
+                                    });
+
+
+                                    
+                            });
+
+                            var mahocvien = $('#mahocvien').val().trim();
+                            var hoten = $("#hovaten").val().trim();
+                            var sodient = $("#sodienthoai").val();
+                            var date = $("#ngaysinh").val();
+                            var diachi = $("#address").val().trim();
+                            var khohoc = $("#khoahoc").val();
+                            var total = $("#hocphi").val().trim();
+                            var fileInput = $("#anh")[0];
+                            var file = fileInput.files[0];
+
+                            var rowCount = $("#table1 tbody tr").length + 1;
+                            $("#table1 tbody").append("<tr><td>" + rowCount +"</td><td>" + mahocvien + "</td><td>" + hoten + "</td><td>" +sodient + "</td><td>" + date + "</td><td>" +diachi +"</td><td>" + khohoc + "</td><td>" + total +"</td><td>" + file + "</td></tr>");
+                            $("#myModal").modal("hide");
+                        });
+                        
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
